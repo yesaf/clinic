@@ -1,0 +1,30 @@
+.home {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.search-container, .details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex: 1;
+    padding-top: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 0.35rem;
+}
+
+.logo-container > img {
+    height: 3rem;
+    width: 3rem;
+}

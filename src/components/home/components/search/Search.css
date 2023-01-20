@@ -1,0 +1,32 @@
+.search {
+    padding: 3rem 1rem 0 3rem;
+}
+
+.search-input {
+    position: relative;
+    display: flex;
+    padding: 0.5rem;
+}
+
+.search-input > input {
+    flex: 1;
+    padding: 0.5rem 0.5rem 0.5rem 2.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
+}
+
+.search-icon {
+    position: absolute;
+    height: 1.5rem;
+    width: 1.5rem;
+    top: 1rem;
+    left: 1rem;
+}
+
+.search-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}

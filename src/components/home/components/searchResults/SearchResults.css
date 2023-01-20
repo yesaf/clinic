@@ -1,0 +1,58 @@
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+    max-height: 30rem;
+    margin: 0 0 0 3rem;
+    overflow-y: auto;
+
+    border: #555555 solid 1px;
+    border-radius: 2px;
+}
+
+.result {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: calc(100% - 1rem);
+    height: 100%;
+    padding: 0.5rem;
+
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #555555;
+}
+
+.result:last-child {
+    border-width: 0;
+}
+
+.chosen-clinic {
+    background-color: #5ced73;
+}
+
+.result p {
+    margin: 0.3rem 0.5rem;
+}
+
+.result-name {
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+}
+
+.result-contacts {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.result-contacts__item > a {
+    color: black;
+}
