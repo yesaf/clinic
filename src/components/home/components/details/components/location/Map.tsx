@@ -1,5 +1,5 @@
 import { GoogleMap, MarkerF } from '@react-google-maps/api';
-import { memo, useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { getGeocode, getLatLng } from 'use-places-autocomplete';
 
 interface IProps {
