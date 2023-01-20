@@ -1,4 +1,4 @@
-import { ClinicData } from '../../../../api/clinicsTypes';
+import { ClinicData } from '../../../../api/types/responses';
 import './SearchResults.css';
 import { useMemo } from 'react';
 
