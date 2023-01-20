@@ -2,7 +2,7 @@ import Search from './components/search/Search';
 import lambdaIcon from '../../assets/lambda.svg';
 import ClinicsService from '../../api/clinics';
 import { useState } from 'react';
-import { ClinicData } from '../../api/clinicsTypes';
+import { ClinicData } from '../../api/types/responses';
 
 import './Home.css';
 import SearchResults from './components/searchResults/SearchResults';

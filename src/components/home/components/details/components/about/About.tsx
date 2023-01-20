@@ -1,4 +1,4 @@
-import { ClinicData } from '../../../../../../api/clinicsTypes';
+import { ClinicData } from '../../../../../../api/types/responses';
 
 import './About.css';
 
