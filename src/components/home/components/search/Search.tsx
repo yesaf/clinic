@@ -40,6 +40,7 @@ function Search({ onSearchChange }: IProps) {
     }, [searchValue, chosenOption]);
 
     const handleClickedOption = (option: string) => {
+        setSearchValue('');
         setChosenOption(option);
     };
 

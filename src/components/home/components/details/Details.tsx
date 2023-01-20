@@ -23,7 +23,7 @@ function Details({ clinic }: IProps) {
                 </button>
             </>
         )
-    }, []);
+    }, [screen]);
 
     return (
         <div className="details">
