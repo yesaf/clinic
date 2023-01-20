@@ -19,6 +19,7 @@ class SuggestionsService {
             'city': '/cities/searchName',
             'state': '/cities/searchState',
             'suburb': '/suburbs/searchSuburbs',
+            'clinic name': '/clinics/searchName',
         };
 
         if (!(option in optionToRoute)) {
