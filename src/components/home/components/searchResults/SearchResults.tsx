@@ -1,6 +1,6 @@
 import { ClinicData } from '../../../../api/types/responses';
 import './SearchResults.css';
-import { useMemo } from 'react';
+import { useMemo, KeyboardEvent } from 'react';
 
 interface IProps {
     results: Array<ClinicData>;
@@ -11,15 +11,25 @@ interface IProps {
 const areEqual = (clinic1: ClinicData, clinic2: ClinicData) => {
     return clinic1.clinicName === clinic2.clinicName &&
         clinic1.fullAddress === clinic2.fullAddress;
-}
+};
 
 function SearchResults({ results, chosen, onChosen }: IProps) {
 
-    const resultsList = useMemo(() => results.map((result, index) => {
 
+    const handleEnter = (result: ClinicData) => {
+        return (e: KeyboardEvent<HTMLDivElement>) => {
+            if (e.key === 'Enter') {
+                onChosen(result);
+            }
+        };
+    };
+
+    const resultsList = useMemo(() => results.map((result, index) => {
         return (
             <div key={index}
                  className={`result ${areEqual(result, chosen) ? 'chosen-clinic' : ''}`}
+                 tabIndex={0}
+                 onKeyPress={handleEnter(result)}
                  onClick={() => onChosen(result)}>
                 <p className="result-name">{result.clinicName}</p>
                 <p className="result-address">
@@ -30,7 +40,7 @@ function SearchResults({ results, chosen, onChosen }: IProps) {
                         <a href={result.website} target="_blank">{result.website}</a>
                     </p>
                     <p className="result-contacts__item">
-                        <a href={"tel:"+result.phone}>p. {result.phone}</a>
+                        <a href={'tel:' + result.phone}>p. {result.phone}</a>
                     </p>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo, useState } from 'react';
+import { memo, useEffect, useMemo, useState, KeyboardEvent } from 'react';
 import SuggestionsService from '../../../../../../api/suggestions';
 import { Suggestion } from '../../../../../../api/types/responses';
 
@@ -28,11 +28,22 @@ function SearchSuggestions({ value, optionName, onClicked }: IProps) {
         })
     }, [value, optionName]);
 
+
+    const handleEnter = (suggestion: string) => {
+        return (e: KeyboardEvent<HTMLSpanElement>) => {
+            if (e.key === 'Enter') {
+                onClicked(suggestion);
+            }
+        }
+    }
+
     const suggestionsList = useMemo(() => {
         return suggestions.map((suggestion, index) => {
             return (
                 <span className="suggestion" key={index}
-                      onMouseDown={() => onClicked(suggestion.suggestion)}>
+                      tabIndex={0}
+                      onMouseDown={() => onClicked(suggestion.suggestion)}
+                      onKeyPress={handleEnter(suggestion.suggestion)}>
                     {suggestion.suggestion}
                 </span>
             )
