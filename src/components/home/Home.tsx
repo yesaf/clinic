@@ -18,14 +18,14 @@ function Home() {
     const handleSearch = (searchValue: string, option: { name: string, route: string }) => {
         service.searchClinics(option.route, searchValue).then((res) => {
             const results = res.data.data.results;
-            setChosenClinic(results[0])
+            setChosenClinic(results[0]);
             setSearchResults(results);
         });
     };
 
     const handleChoose = (result: ClinicData) => {
         setChosenClinic(result);
-    }
+    };
 
     return (
         <div className="home">
@@ -41,7 +41,7 @@ function Home() {
                 </div>
                 {
                     chosenClinic &&
-                    <Details clinic={chosenClinic} />
+                    <Details clinic={chosenClinic}/>
                 }
             </div>
 

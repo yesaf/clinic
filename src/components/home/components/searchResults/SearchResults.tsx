@@ -29,7 +29,9 @@ function SearchResults({ results, chosen, onChosen }: IProps) {
                     <p className="result-contacts__item">
                         <a href={result.website} target="_blank">{result.website}</a>
                     </p>
-                    <p className="result-contacts__item">p. {result.phone}</p>
+                    <p className="result-contacts__item">
+                        <a href={"tel:"+result.phone}>p. {result.phone}</a>
+                    </p>
                 </div>
             </div>
         );

@@ -21,6 +21,7 @@
     border-width: 1px;
     border-radius: 0;
     padding: 0.25rem;
+    cursor: pointer;
 }
 
 .screen-select__button:first-child {

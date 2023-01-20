@@ -55,4 +55,5 @@
 
 .result-contacts__item > a {
     color: black;
+    text-decoration: none;
 }
