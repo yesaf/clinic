@@ -8,7 +8,7 @@ interface IProps {
 }
 
 function Search({ onSearchChange }: IProps) {
-    const options = [
+    const options = useMemo(() => [
         {
             name: 'City',
             route: 'byCity',
@@ -29,7 +29,7 @@ function Search({ onSearchChange }: IProps) {
             name: 'Suburb',
             route: 'bySuburb',
         },
-    ];
+    ], []);
     const [searchValue, setSearchValue] = useState<string>('Canberra');
     const [chosen, setChosen] = useState<string>(options[0].name);
 
@@ -49,7 +49,7 @@ function Search({ onSearchChange }: IProps) {
                                  isChosen={option.name === chosen}
                                  onClick={handleClickedOption}/>;
         });
-    }, [options]);
+    }, [options, chosen]);
 
     return (
         <div className="search">
