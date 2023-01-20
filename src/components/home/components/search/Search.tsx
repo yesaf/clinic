@@ -2,6 +2,7 @@ import { memo, useEffect, useMemo, useState } from 'react';
 import searchIcon from '../../../../assets/search.svg';
 import SearchOption from './components/searchOption/SearchOption';
 import './Search.css';
+import SearchSuggestions from './components/searchSuggestions/SearchSuggestions';
 
 interface IProps {
     onSearchChange: (searchValue: string, option: { name: string, route: string }) => void;
@@ -31,25 +32,29 @@ function Search({ onSearchChange }: IProps) {
         },
     ], []);
     const [searchValue, setSearchValue] = useState<string>('Canberra');
-    const [chosen, setChosen] = useState<string>(options[0].name);
+    const [chosenOption, setChosenOption] = useState<string>(options[0].name);
 
 
     useEffect(() => {
-        onSearchChange(searchValue, options.find((option) => option.name === chosen)!);
-    }, [searchValue, chosen]);
+        onSearchChange(searchValue, options.find((option) => option.name === chosenOption)!);
+    }, [searchValue, chosenOption]);
 
     const handleClickedOption = (option: string) => {
-        setChosen(option);
+        setChosenOption(option);
     };
 
     const optionsList = useMemo(() => {
         return options.map((option, index) => {
             return <SearchOption key={index}
                                  option={option.name}
-                                 isChosen={option.name === chosen}
+                                 isChosen={option.name === chosenOption}
                                  onClick={handleClickedOption}/>;
         });
-    }, [options, chosen]);
+    }, [options, chosenOption]);
+
+    const handleSuggestionClick = (suggestion: string) => {
+        setSearchValue(suggestion);
+    }
 
     return (
         <div className="search">
@@ -58,6 +63,9 @@ function Search({ onSearchChange }: IProps) {
                 <input type="text" placeholder="Search for smth..."
                           value={searchValue}
                           onChange={(e) => setSearchValue(e.target.value)}/>
+                <SearchSuggestions value={searchValue}
+                                   optionName={chosenOption}
+                                   onClicked={handleSuggestionClick}/>
             </div>
             <div className="search-options">
                 {optionsList}

@@ -1,5 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
-import { ClinicsResponse } from './clinicsTypes';
+import { ClinicsResponse } from './types/responses';
 
 class ClinicsService {
     api: AxiosInstance

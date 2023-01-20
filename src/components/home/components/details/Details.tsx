@@ -1,5 +1,5 @@
-import { memo, useState } from 'react';
-import { ClinicData } from '../../../../api/clinicsTypes';
+import { memo, useMemo, useState } from 'react';
+import { ClinicData } from '../../../../api/types/responses';
 import About from './components/about/About';
 import Location from './components/location/Location';
 import './Details.css';
@@ -10,9 +10,9 @@ interface IProps {
 
 function Details({ clinic }: IProps) {
     const [screen, setScreen] = useState<'location' | 'about'>('location');
-    return (
-        <div className="details">
-            <div className="screen-select">
+    const buttons = useMemo(() => {
+        return (
+            <>
                 <button className={`screen-select__button ${screen === 'location' ? 'active-screen' : ''}`}
                         onClick={() => setScreen('location')}>
                     Location
@@ -21,6 +21,14 @@ function Details({ clinic }: IProps) {
                         onClick={() => setScreen('about')}>
                     About
                 </button>
+            </>
+        )
+    }, []);
+
+    return (
+        <div className="details">
+            <div className="screen-select">
+                {buttons}
             </div>
             <div className="details-content">
                 {
